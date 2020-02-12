@@ -1,4 +1,4 @@
-package com.marcelo.cursomc.domain;
+package com.marcelo.cursomc.entities;
 
 import java.io.Serializable;
 
