@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.marcelo.cursomc.dao.CategoriaDAO;
 import com.marcelo.cursomc.entities.Categoria;
+import com.marcelo.cursomc.services.exceptions.ObjectNotFoundException;
+
 
 @Service
 public class CategoriaService {
@@ -21,11 +23,11 @@ public class CategoriaService {
 		return categorias;
 	}
 	
-	public Categoria buscarCategoriaPorId(Integer id) {
+	public Categoria buscarCategoriaPorId(Integer id) throws ObjectNotFoundException{
 		Optional<Categoria> categoria = dao.findById(id);
 		
-		return categoria.orElse(null);
-		
+		return categoria.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
 	}
 	
 }

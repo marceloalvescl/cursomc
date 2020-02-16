@@ -1,4 +1,4 @@
-package com.marcelo.cursomc.paths;
+package com.marcelo.cursomc.resources.produto;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import com.marcelo.cursomc.services.ProdutoService;
 
 @RestController
 @RequestMapping(value = "/produtos")
-public class ProdutoResource {
+public class ProdutoPathHandler {
 
 	@Autowired
 	private ProdutoService service;
